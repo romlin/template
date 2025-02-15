@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curlang</title>
+    <link rel="stylesheet" href="app.min.css">
+    <script src="node_modules/masonry-layout/dist/masonry.pkgd.min.js"></script>
+    <script src="node_modules/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="node_modules/monaco-editor/min/vs/loader.js"></script>
+</head>
+<body>
+<div id="toolbar">
+    <div id="logo">
+        <a href="index.html">
+            <h1><span>{c}</span> curlang</h1>
+        </a>
+    </div> <!-- END #logo -->
+
+    <div id="toolbar-right">
+        <div class="actions">
+            <div class="action" id="save-action">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                     viewBox="0 0 16 16">
+                    <path d="M0 0h1v1h-1zM1 0h1v1h-1zM2 0h1v1h-1zM3 0h1v1h-1zM4 0h1v1h-1zM5 0h1v1h-1zM6 0h1v1h-1zM7 0h1v1h-1zM8 0h1v1h-1zM9 0h1v1h-1zM10 0h1v1h-1zM11 0h1v1h-1zM12 0h1v1h-1zM13 0h1v1h-1zM14 0h1v1h-1zM15 0h1v1h-1zM0 1h1v1h-1zM1 1h1v1h-1zM2 1h1v1h-1zM3 1h1v1h-1zM4 1h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM7 1h1v1h-1zM8 1h1v1h-1zM9 1h1v1h-1zM10 1h1v1h-1zM11 1h1v1h-1zM12 1h1v1h-1zM13 1h1v1h-1zM14 1h1v1h-1zM15 1h1v1h-1zM0 2h1v1h-1zM1 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM7 2h1v1h-1zM10 2h1v1h-1zM11 2h1v1h-1zM14 2h1v1h-1zM15 2h1v1h-1zM0 3h1v1h-1zM1 3h1v1h-1zM4 3h1v1h-1zM5 3h1v1h-1zM6 3h1v1h-1zM7 3h1v1h-1zM10 3h1v1h-1zM11 3h1v1h-1zM14 3h1v1h-1zM15 3h1v1h-1zM0 4h1v1h-1zM1 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM7 4h1v1h-1zM10 4h1v1h-1zM11 4h1v1h-1zM14 4h1v1h-1zM15 4h1v1h-1zM0 5h1v1h-1zM1 5h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1zM7 5h1v1h-1zM10 5h1v1h-1zM11 5h1v1h-1zM14 5h1v1h-1zM15 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM7 6h1v1h-1zM8 6h1v1h-1zM9 6h1v1h-1zM10 6h1v1h-1zM11 6h1v1h-1zM14 6h1v1h-1zM15 6h1v1h-1zM0 7h1v1h-1zM1 7h1v1h-1zM4 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM7 7h1v1h-1zM8 7h1v1h-1zM9 7h1v1h-1zM10 7h1v1h-1zM11 7h1v1h-1zM14 7h1v1h-1zM15 7h1v1h-1zM0 8h1v1h-1zM1 8h1v1h-1zM14 8h1v1h-1zM15 8h1v1h-1zM0 9h1v1h-1zM1 9h1v1h-1zM14 9h1v1h-1zM15 9h1v1h-1zM0 10h1v1h-1zM1 10h1v1h-1zM14 10h1v1h-1zM15 10h1v1h-1zM0 11h1v1h-1zM1 11h1v1h-1zM14 11h1v1h-1zM15 11h1v1h-1zM0 12h1v1h-1zM1 12h1v1h-1zM14 12h1v1h-1zM15 12h1v1h-1zM0 13h1v1h-1zM1 13h1v1h-1zM14 13h1v1h-1zM15 13h1v1h-1zM0 14h1v1h-1zM1 14h1v1h-1zM2 14h1v1h-1zM3 14h1v1h-1zM4 14h1v1h-1zM5 14h1v1h-1zM6 14h1v1h-1zM7 14h1v1h-1zM8 14h1v1h-1zM9 14h1v1h-1zM10 14h1v1h-1zM11 14h1v1h-1zM12 14h1v1h-1zM13 14h1v1h-1zM14 14h1v1h-1zM15 14h1v1h-1zM0 15h1v1h-1zM1 15h1v1h-1zM2 15h1v1h-1zM3 15h1v1h-1zM4 15h1v1h-1zM5 15h1v1h-1zM6 15h1v1h-1zM7 15h1v1h-1zM8 15h1v1h-1zM9 15h1v1h-1zM10 15h1v1h-1zM11 15h1v1h-1zM12 15h1v1h-1zM13 15h1v1h-1zM14 15h1v1h-1zM15 15h1v1h-1z"
+                          fill="#ffffff"/>
+                </svg>
+            </div> <!-- END #save-action -->
+
+            <div class="action" id="verify-action">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                     viewBox="0 0 16 16">
+                    <path d="M14 3h1v1h-1zM15 3h1v1h-1zM14 4h1v1h-1zM15 4h1v1h-1zM12 5h1v1h-1zM13 5h1v1h-1zM12 6h1v1h-1zM13 6h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM10 7h1v1h-1zM11 7h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM10 8h1v1h-1zM11 8h1v1h-1zM4 9h1v1h-1zM5 9h1v1h-1zM8 9h1v1h-1zM9 9h1v1h-1zM4 10h1v1h-1zM5 10h1v1h-1zM8 10h1v1h-1zM9 10h1v1h-1zM6 11h1v1h-1zM7 11h1v1h-1zM6 12h1v1h-1zM7 12h1v1h-1z"
+                          fill="#ffffff"/>
+                </svg>
+            </div> <!-- END #verify-action -->
+
+            <div class="action" id="build-action">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                     viewBox="0 0 16 16">
+                    <path d="M2 2h1v1h-1zM3 2h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM5 3h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM7 4h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1zM7 5h1v1h-1zM8 5h1v1h-1zM9 5h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM7 6h1v1h-1zM8 6h1v1h-1zM9 6h1v1h-1zM10 6h1v1h-1zM11 6h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM4 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM7 7h1v1h-1zM8 7h1v1h-1zM9 7h1v1h-1zM10 7h1v1h-1zM11 7h1v1h-1zM12 7h1v1h-1zM13 7h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM6 8h1v1h-1zM7 8h1v1h-1zM8 8h1v1h-1zM9 8h1v1h-1zM10 8h1v1h-1zM11 8h1v1h-1zM12 8h1v1h-1zM13 8h1v1h-1zM2 9h1v1h-1zM3 9h1v1h-1zM4 9h1v1h-1zM5 9h1v1h-1zM6 9h1v1h-1zM7 9h1v1h-1zM8 9h1v1h-1zM9 9h1v1h-1zM10 9h1v1h-1zM11 9h1v1h-1zM2 10h1v1h-1zM3 10h1v1h-1zM4 10h1v1h-1zM5 10h1v1h-1zM6 10h1v1h-1zM7 10h1v1h-1zM8 10h1v1h-1zM9 10h1v1h-1zM2 11h1v1h-1zM3 11h1v1h-1zM4 11h1v1h-1zM5 11h1v1h-1zM6 11h1v1h-1zM7 11h1v1h-1zM2 12h1v1h-1zM3 12h1v1h-1zM4 12h1v1h-1zM5 12h1v1h-1zM2 13h1v1h-1zM3 13h1v1h-1z"
+                          fill="#ffffff"/>
+                </svg>
+            </div> <!-- END #build-action -->
+        </div> <!-- END .actions -->
+
+        <button id="toggle-comments-btn" onclick="toggleCommentSidebar()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                 viewBox="0 0 16 16">
+                <path d="M0 0h1v1h-1zM1 0h1v1h-1zM2 0h1v1h-1zM3 0h1v1h-1zM4 0h1v1h-1zM5 0h1v1h-1zM6 0h1v1h-1zM7 0h1v1h-1zM8 0h1v1h-1zM9 0h1v1h-1zM10 0h1v1h-1zM11 0h1v1h-1zM12 0h1v1h-1zM13 0h1v1h-1zM14 0h1v1h-1zM15 0h1v1h-1zM0 1h1v1h-1zM1 1h1v1h-1zM2 1h1v1h-1zM3 1h1v1h-1zM4 1h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM7 1h1v1h-1zM8 1h1v1h-1zM9 1h1v1h-1zM10 1h1v1h-1zM11 1h1v1h-1zM12 1h1v1h-1zM13 1h1v1h-1zM14 1h1v1h-1zM15 1h1v1h-1zM0 2h1v1h-1zM1 2h1v1h-1zM14 2h1v1h-1zM15 2h1v1h-1zM0 3h1v1h-1zM1 3h1v1h-1zM14 3h1v1h-1zM15 3h1v1h-1zM0 4h1v1h-1zM1 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM7 4h1v1h-1zM8 4h1v1h-1zM9 4h1v1h-1zM10 4h1v1h-1zM11 4h1v1h-1zM14 4h1v1h-1zM15 4h1v1h-1zM0 5h1v1h-1zM1 5h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1zM7 5h1v1h-1zM8 5h1v1h-1zM9 5h1v1h-1zM10 5h1v1h-1zM11 5h1v1h-1zM14 5h1v1h-1zM15 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM14 6h1v1h-1zM15 6h1v1h-1zM0 7h1v1h-1zM1 7h1v1h-1zM14 7h1v1h-1zM15 7h1v1h-1zM0 8h1v1h-1zM1 8h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM6 8h1v1h-1zM7 8h1v1h-1zM8 8h1v1h-1zM9 8h1v1h-1zM10 8h1v1h-1zM11 8h1v1h-1zM14 8h1v1h-1zM15 8h1v1h-1zM0 9h1v1h-1zM1 9h1v1h-1zM4 9h1v1h-1zM5 9h1v1h-1zM6 9h1v1h-1zM7 9h1v1h-1zM8 9h1v1h-1zM9 9h1v1h-1zM10 9h1v1h-1zM11 9h1v1h-1zM14 9h1v1h-1zM15 9h1v1h-1zM0 10h1v1h-1zM1 10h1v1h-1zM14 10h1v1h-1zM15 10h1v1h-1zM0 11h1v1h-1zM1 11h1v1h-1zM14 11h1v1h-1zM15 11h1v1h-1zM0 12h1v1h-1zM1 12h1v1h-1zM14 12h1v1h-1zM15 12h1v1h-1zM0 13h1v1h-1zM1 13h1v1h-1zM14 13h1v1h-1zM15 13h1v1h-1zM0 14h1v1h-1zM1 14h1v1h-1zM2 14h1v1h-1zM3 14h1v1h-1zM4 14h1v1h-1zM5 14h1v1h-1zM6 14h1v1h-1zM7 14h1v1h-1zM8 14h1v1h-1zM9 14h1v1h-1zM10 14h1v1h-1zM11 14h1v1h-1zM12 14h1v1h-1zM13 14h1v1h-1zM14 14h1v1h-1zM15 14h1v1h-1zM0 15h1v1h-1zM1 15h1v1h-1zM2 15h1v1h-1zM3 15h1v1h-1zM4 15h1v1h-1zM5 15h1v1h-1zM6 15h1v1h-1zM7 15h1v1h-1zM8 15h1v1h-1zM9 15h1v1h-1zM10 15h1v1h-1zM11 15h1v1h-1zM12 15h1v1h-1zM13 15h1v1h-1zM14 15h1v1h-1zM15 15h1v1h-1z"
+                      fill="#31efb8"/>
+            </svg>
+        </button>
+
+        <div id="heartbeat-indicator">
+            <span id="heartbeat-dot"></span> <span
+                id="heartbeat-time">00:00</span>
+        </div> <!-- END #heartbeat-indicator -->
+    </div> <!-- END #toolbar-right -->
+</div> <!-- END #toolbar -->
+
+<div id="status-bar"></div> <!-- END #status-bar -->
+
+<div id="comment-sidebar">
+    <button id="toggle-comment-sidebar" onclick="toggleCommentSidebar()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+             viewBox="0 0 16 16">
+            <path d="M1 1h1v1h-1zM2 1h1v1h-1zM13 1h1v1h-1zM14 1h1v1h-1zM1 2h1v1h-1zM2 2h1v1h-1zM13 2h1v1h-1zM14 2h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM11 3h1v1h-1zM12 3h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM11 4h1v1h-1zM12 4h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1zM9 5h1v1h-1zM10 5h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM9 6h1v1h-1zM10 6h1v1h-1zM7 7h1v1h-1zM8 7h1v1h-1zM7 8h1v1h-1zM8 8h1v1h-1zM5 9h1v1h-1zM6 9h1v1h-1zM9 9h1v1h-1zM10 9h1v1h-1zM5 10h1v1h-1zM6 10h1v1h-1zM9 10h1v1h-1zM10 10h1v1h-1zM3 11h1v1h-1zM4 11h1v1h-1zM11 11h1v1h-1zM12 11h1v1h-1zM3 12h1v1h-1zM4 12h1v1h-1zM11 12h1v1h-1zM12 12h1v1h-1zM1 13h1v1h-1zM2 13h1v1h-1zM13 13h1v1h-1zM14 13h1v1h-1zM1 14h1v1h-1zM2 14h1v1h-1zM13 14h1v1h-1zM14 14h1v1h-1z"
+                  fill="#5865f2"/>
+        </svg>
+    </button>
+    <h2>Comments</h2>
+    <div id="comment-list"></div>
+</div> <!-- END #comment-sidebar -->
+
+<div class="tabs-container">
+    <div class="tabs">
+        <div class="tab active" data-tab="board">Board</div>
+        <div class="tab" data-tab="app">App</div>
+        <div class="tab" data-tab="editor">Editor</div>
+        <div class="tab" data-tab="hooks">Hooks</div>
+        <div class="tab" data-tab="log">Log</div>
+    </div>
+
+    <div class="filters"></div>
+</div> <!-- END #tabs-container -->
+
+<div class="tab-content active" id="board-content">
+    <div class="wrapper">
+        <div id="iframe-wrapper"></div> <!-- END #frame-wrapper -->
+
+        <div id="input-wrapper">
+            <div id="input-data">
+                <ul>
+                    <li class="node-lock">
+                        <div id="add-input" class="node-content node-parent">
+                            <span>Input</span>
+                            <button class="trigger-button">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                     width="16" height="16"
+                                     viewBox="0 0 16 16">
+                                    <path d="M0 0h1v1h-1zM1 0h1v1h-1zM2 0h1v1h-1zM3 0h1v1h-1zM6 0h1v1h-1zM7 0h1v1h-1zM8 0h1v1h-1zM9 0h1v1h-1zM12 0h1v1h-1zM13 0h1v1h-1zM14 0h1v1h-1zM15 0h1v1h-1zM0 1h1v1h-1zM1 1h1v1h-1zM2 1h1v1h-1zM3 1h1v1h-1zM6 1h1v1h-1zM7 1h1v1h-1zM8 1h1v1h-1zM9 1h1v1h-1zM12 1h1v1h-1zM13 1h1v1h-1zM14 1h1v1h-1zM15 1h1v1h-1zM0 2h1v1h-1zM1 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM6 2h1v1h-1zM7 2h1v1h-1zM8 2h1v1h-1zM9 2h1v1h-1zM12 2h1v1h-1zM13 2h1v1h-1zM14 2h1v1h-1zM15 2h1v1h-1zM0 3h1v1h-1zM1 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM6 3h1v1h-1zM7 3h1v1h-1zM8 3h1v1h-1zM9 3h1v1h-1zM12 3h1v1h-1zM13 3h1v1h-1zM14 3h1v1h-1zM15 3h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM6 6h1v1h-1zM7 6h1v1h-1zM8 6h1v1h-1zM9 6h1v1h-1zM12 6h1v1h-1zM13 6h1v1h-1zM14 6h1v1h-1zM15 6h1v1h-1zM0 7h1v1h-1zM1 7h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM6 7h1v1h-1zM7 7h1v1h-1zM8 7h1v1h-1zM9 7h1v1h-1zM12 7h1v1h-1zM13 7h1v1h-1zM14 7h1v1h-1zM15 7h1v1h-1zM0 8h1v1h-1zM1 8h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM6 8h1v1h-1zM7 8h1v1h-1zM8 8h1v1h-1zM9 8h1v1h-1zM12 8h1v1h-1zM13 8h1v1h-1zM14 8h1v1h-1zM15 8h1v1h-1zM0 9h1v1h-1zM1 9h1v1h-1zM2 9h1v1h-1zM3 9h1v1h-1zM6 9h1v1h-1zM7 9h1v1h-1zM8 9h1v1h-1zM9 9h1v1h-1zM12 9h1v1h-1zM13 9h1v1h-1zM14 9h1v1h-1zM15 9h1v1h-1zM0 12h1v1h-1zM1 12h1v1h-1zM2 12h1v1h-1zM3 12h1v1h-1zM6 12h1v1h-1zM7 12h1v1h-1zM8 12h1v1h-1zM9 12h1v1h-1zM12 12h1v1h-1zM13 12h1v1h-1zM14 12h1v1h-1zM15 12h1v1h-1zM0 13h1v1h-1zM1 13h1v1h-1zM2 13h1v1h-1zM3 13h1v1h-1zM6 13h1v1h-1zM7 13h1v1h-1zM8 13h1v1h-1zM9 13h1v1h-1zM12 13h1v1h-1zM13 13h1v1h-1zM14 13h1v1h-1zM15 13h1v1h-1zM0 14h1v1h-1zM1 14h1v1h-1zM2 14h1v1h-1zM3 14h1v1h-1zM6 14h1v1h-1zM7 14h1v1h-1zM8 14h1v1h-1zM9 14h1v1h-1zM12 14h1v1h-1zM13 14h1v1h-1zM14 14h1v1h-1zM15 14h1v1h-1zM0 15h1v1h-1zM1 15h1v1h-1zM2 15h1v1h-1zM3 15h1v1h-1zM6 15h1v1h-1zM7 15h1v1h-1zM8 15h1v1h-1zM9 15h1v1h-1zM12 15h1v1h-1zM13 15h1v1h-1zM14 15h1v1h-1zM15 15h1v1h-1z"
+                                          fill="#ffffff"/>
+                                </svg>
+                            </button>
+                        </div> <!-- END .node-content -->
+                    </li>
+                </ul>
+            </div> <!-- END #input-data -->
+
+            <div id="input-hooks"></div> <!-- END #input-hooks -->
+        </div> <!-- END #input-wrapper -->
+
+        <div id="output-widget" class="widget">
+            <button class="fullscreen-toggle-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                     viewBox="0 0 16 16">
+                    <path d="M5 0h1v1h-1zM6 0h1v1h-1zM9 0h1v1h-1zM10 0h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM9 1h1v1h-1zM10 1h1v1h-1zM7 2h1v1h-1zM8 2h1v1h-1zM7 3h1v1h-1zM8 3h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM7 4h1v1h-1zM8 4h1v1h-1zM9 4h1v1h-1zM10 4h1v1h-1zM11 4h1v1h-1zM12 4h1v1h-1zM13 4h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1zM7 5h1v1h-1zM8 5h1v1h-1zM9 5h1v1h-1zM10 5h1v1h-1zM11 5h1v1h-1zM12 5h1v1h-1zM13 5h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM12 6h1v1h-1zM13 6h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM12 7h1v1h-1zM13 7h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM12 8h1v1h-1zM13 8h1v1h-1zM2 9h1v1h-1zM3 9h1v1h-1zM12 9h1v1h-1zM13 9h1v1h-1zM2 10h1v1h-1zM3 10h1v1h-1zM12 10h1v1h-1zM13 10h1v1h-1zM2 11h1v1h-1zM3 11h1v1h-1zM12 11h1v1h-1zM13 11h1v1h-1zM2 12h1v1h-1zM3 12h1v1h-1zM4 12h1v1h-1zM5 12h1v1h-1zM6 12h1v1h-1zM7 12h1v1h-1zM8 12h1v1h-1zM9 12h1v1h-1zM10 12h1v1h-1zM11 12h1v1h-1zM12 12h1v1h-1zM13 12h1v1h-1zM2 13h1v1h-1zM3 13h1v1h-1zM4 13h1v1h-1zM5 13h1v1h-1zM6 13h1v1h-1zM7 13h1v1h-1zM8 13h1v1h-1zM9 13h1v1h-1zM10 13h1v1h-1zM11 13h1v1h-1zM12 13h1v1h-1zM13 13h1v1h-1z"
+                          fill="#ffffff"/>
+                </svg>
+            </button>
+            <div id="output-content">No output available.</div>
+        </div> <!-- END .widget -->
+
+        <div id="media-list-container"></div><!-- END #media-list-container -->
+
+        <div id="cron-widget" class="widget">
+
+            <div id="cron-labels">
+                <label>
+                    <input type="radio" name="schedule-type" value="manual"
+                           checked autocomplete="off"> Manual
+                </label>
+                <label>
+                    <input type="radio" name="schedule-type" value="recurring"
+                           autocomplete="off"> Recurring
+                </label>
+            </div>
+
+            <div id="recurring-schedule">
+                <input type="text" id="cron-pattern" placeholder="* * * * *"
+                       required autocomplete="off">
+            </div>
+
+            <div id="manual-schedule" style="display: none;">
+                <input type="datetime-local" id="manual-datetime" required
+                       autocomplete="off">
+                <button id="add-datetime">Add Date/Time</button>
+                <ul id="datetime-list"></ul>
+            </div>
+
+            <button id="save-schedule">Save</button>
+
+            <div id="schedules-container"></div>
+        </div> <!-- END .widget -->
+
+        <div id="eval-widget" class="widget">
+            <p>No data available.</p>
+        </div> <!-- END .widget -->
+
+    </div> <!-- END .wrapper -->
+</div> <!-- END #board-content -->
+
+<div class="tab-content" id="app-content">
+    <div class="wrapper">
+        <h2>web/app/pages/index.tsx</h2>
+        <div id="app-editor-wrapper">
+            <div id="app-editor" class="editor-container"></div>
+        </div>
+        <button id="save-app-page">Save</button>
+    </div> <!-- END .wrapper -->
+</div> <!-- END #app-content -->
+
+<div class="tab-content" id="editor-content">
+    <div class="wrapper">
+        <h2>build/curlang.json</h2>
+        <div id="file-content"></div>
+
+        <div id="button-container">
+            <div class="dropdown">
+                <button onclick="toggleDropdown()" class="dropbtn">
+                    Add block
+                </button>
+                <div id="dropdownMenu" class="dropdown-content">
+                    <a href="#" onclick="addCurlangBlock()" class="curlang">Curlang</a>
+                    <a href="#" onclick="addMarkdownBlock()" class="markdown">Markdown</a>
+                    <a href="#" onclick="addBashBlock()">Bash</a>
+                    <a href="#" onclick="addPythonBlock()">Python</a>
+                </div>
+            </div>
+            <button id="save-button">Save</button>
+        </div> <!-- END #button-container -->
+
+    </div> <!-- END .wrapper -->
+</div> <!-- END #editor-content -->
+
+<div class="tab-content" id="hooks-content">
+    <div id="hooks">
+        <div id="add-hook-form">
+            <h3>Add new hook</h3>
+            <form id="hook-form" autocomplete="off">
+                <div class="form-group">
+                    <label for="hook-name">Name</label>
+                    <input type="text" id="hook-name" name="hook-name" required
+                           autocomplete="off">
+                </div>
+
+                <script>
+                    const hookForm = document.getElementById('hook-form');
+                    const hookNameInput = document.getElementById('hook-name');
+
+                    hookNameInput.addEventListener('input', (event) => {
+                        const originalValue = event.target.value;
+                        const sanitizedValue = originalValue.toLowerCase().replace(/[^a-z0-9_]/g, '');
+
+                        if (originalValue !== sanitizedValue) {
+                            event.target.value = sanitizedValue;
+                        }
+                    });
+
+                    hookForm.addEventListener('submit', (event) => {
+                        const hookName = hookNameInput.value;
+                        const regex = /^[a-z0-9_]+$/;
+
+                        if (!regex.test(hookName)) {
+                            event.preventDefault();
+                            alert('Invalid hook name. Only lowercase letters, numbers, and hyphens are allowed.');
+                            hookNameInput.focus();
+                        }
+                    });
+                </script>
+
+                <div class="form-group">
+                    <label for="hook-type">Type</label>
+                    <div id="hook-type-wrapper">
+                        <select id="hook-type" name="hook-type" required
+                                autocomplete="off">
+                            <option value="curlang">Curlang</option>
+                            <option value="bash">Bash</option>
+                            <option value="python">Python</option>
+                        </select>
+                    </div> <!-- END #hook-type-wrapper -->
+                </div>
+
+                <div class="form-group">
+                    <label for="hook-placement">Placement</label>
+                    <div id="hook-placement-wrapper">
+                        <select id="hook-placement" name="hook-placement"
+                                required
+                                autocomplete="off">
+                            <option value="before">Before</option>
+                            <option value="after">After</option>
+                        </select>
+                    </div> <!-- END #hook-placement-wrapper -->
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label for="expose-to-public-api">
+                        <input type="checkbox" id="expose-to-public-api"
+                               name="expose-to-public-api">
+                        Expose to public API
+                    </label>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label for="show-on-frontpage">
+                        <input type="checkbox" id="show-on-frontpage"
+                               name="show-on-frontpage">
+                        Show on frontpage
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label>Script</label>
+                    <div id="hook-script-wrapper">
+                        <div id="hook-script"></div>
+                    </div>
+                </div>
+
+                <button type="submit" class="form-button">Submit</button>
+            </form>
+        </div>
+
+        <h2>Hooks</h2>
+        <div id="hooks-list"></div>
+
+    </div> <!-- END #hooks -->
+</div> <!-- END #hooks-content -->
+
+<div class="tab-content" id="log-content">
+    <div id="log">
+        <div id="log-dropdown-wrapper">
+            <select id="log-dropdown" onchange="fetchSelectedLog()">
+                <option value="">Select a log file</option>
+            </select> <!-- END #log-dropdown -->
+        </div> <!-- END #log-dropdown-wrapper -->
+        <div id="log-output">
+            No logs available.
+        </div> <!-- END #log-output -->
+    </div> <!-- END #log -->
+</div> <!-- END #log-content -->
+
+<div id="footer">
+    Powered by <a href="https://curlang.com">Curlang</a>
+</div> <!-- END #footer -->
+
+<div id="api-key-modal" style="display: none;">
+    <div id="api-key-modal-content">
+        <h2>Enter API token</h2>
+        <p>The API token can be found in your terminal.</p>
+        <form id="api-key-form">
+            <input type="password" id="api-key-input"
+                   placeholder="Enter your API token" autocomplete="off">
+            <button id="api-key-authorize" type="submit">Authorize</button>
+        </form>
+    </div> <!-- END #api-key-modal-content -->
+</div> <!-- #api-key-modal -->
+
+<div id="loading-overlay" style="display: none;">
+    <p id="loading-message">Please wait</p>
+</div> <!-- END #loading-overlay -->
+
+<script src="app.min.js" defer></script>
+</body>
+</html>

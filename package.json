@@ -1,0 +1,13 @@
+{
+  "name": "template",
+  "version": "0.0.1",
+  "description": "Default template for Curlang",
+  "main": "index.html",
+  "dependencies": {
+    "imagesloaded": "5.0.0",
+    "masonry-layout": "4.2.2",
+    "monaco-editor": "0.52.2"
+  },
+  "author": "Curlang",
+  "license": "Apache-2.0"
+}
