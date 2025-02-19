@@ -1984,7 +1984,7 @@ async function initializeEditor(
             vertical: 'hidden'
         },
         selectOnLineNumbers: true,
-        showUnused: true,
+        showUnused: false,
         smoothScrolling: true,
         stickyScroll: {enabled: false},
         suggestSelection: 'first',
